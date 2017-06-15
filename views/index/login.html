@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>学IT - 后台管理系统</title>
+    <?php include '/views/common/style.html' ?>
+</head>
+
+<body>
+    <!-- 登录 -->
+    <div class="login">
+        <div class="login-wrap">
+            <div class="avatar">
+                <img src="../../uploads/monkey.png" class="img-circle" alt="">
+            </div>
+            <form action="" class="col-md-offset-1 col-md-10" id="loginForm">
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">
+                        <i class="fa fa-user"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="用户名" id="tc_name">
+                </div>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-addon">
+                        <i class="fa fa-key"></i>
+                    </span>
+                    <input type="password" class="form-control" placeholder="密码" id="tc_pass">
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block">登 录</button>
+            </form>
+        </div>
+    </div>
+    <?php include '/views/common/script.html' ?>
+    <script>
+        // 1.给form表单绑定submit事件
+        //2.获取到用户名和密码
+        //3.发送ajax请求到登录窗口
+        $('#loginForm').on('submit', function () {
+            var tc_name = $('#tc_name').val();
+            var tc_pass = $('#tc_pass').val();
+            $.ajax({
+                url: '/api/login?tc_name=' + tc_name + "&tc_pass=" + tc_pass,
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    if (data.code === 200) {
+                        window.location.href = "/";
+                    }
+                }
+            })
+            return false;
+        })
+    </script>
+</body>
+
+</html>
