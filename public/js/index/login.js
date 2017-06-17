@@ -25,8 +25,8 @@ define(['jquery'], function ($) {
                     // 跳转到首页
                     location.href = '/';
                     //存储下cookie
-                    $.cookie('tc_name',data.result.tc_name,{expores:1});
-                    $.cookie('tc_avatar',data.result.tc_avatar,{expores:1});
+                    $.cookie('tc_name',data.result.tc_name,{expires:1});
+                    $.cookie('tc_avatar',data.result.tc_avatar,{expires:1});
                 
                 }
             }

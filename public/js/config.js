@@ -9,10 +9,17 @@ var pathConfig = {
   // 各个模块的路径
   paths: {
     jquery: 'assets/jquery/jquery.min',
-    cookie: 'assets/jquery-cookie/jquery.cookie'
+    cookie: 'assets/jquery-cookie/jquery.cookie',
+    template:'assets/artTemplate/template-web',
+    bootstrap:'assets/bootstrap/js/bootstrap'
+  },
+  shim:{
+    bootstrap:{
+      deps:['jquery']
+    }
   }
-};
 
+};
 require.config(pathConfig);
 }()
 
