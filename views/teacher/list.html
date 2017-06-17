@@ -24,7 +24,7 @@
                     <li class="active">讲师列表</li>
                 </ol>
                 <div class="page-title">
-                    <a href="add.html" class="btn btn-success btn-sm pull-right">添加讲师</a>
+                    <a href="/teacher/add" class="btn btn-success btn-sm pull-right">添加讲师</a>
                 </div>
                 <div class="panel panel-default">
                     <div class="panel-body">
@@ -132,6 +132,11 @@
         </div>
     </div>
 
+<!--编辑讲师的模板-->
+ 
+
+
+
 <!--查看讲师详情的模板-->
     <script type="text/html" id="teacher_view_tpl">
         <tr>
@@ -193,8 +198,8 @@
             <td>{{ $value.tc_join_date}}</td>
             <td data-id="{{$value.tc_id}}">
                 <a href="javascript:;"  class="btn btn-info btn-xs preview">查 看</a>
-                <a href="javascript:;" class="btn btn-info btn-xs">编 辑</a>
-                <a href="javascript:;" class="btn btn-warning btn-xs">注 销</a>
+                <a href="javascript:;" class="btn btn-info btn-xs edit">编 辑</a>
+                <a href="javascript:;" class="btn btn-warning btn-xs handle" data-status="{{$value.tc_status}}">{{$value.tc_status=== '0'?'注销':'启用'}}</a>
             </td>
         </tr>
         {{ /each }}

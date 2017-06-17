@@ -21,7 +21,7 @@ var pathConfig = {
 
 };
 require.config(pathConfig);
-}()
+}();
 
 
 
