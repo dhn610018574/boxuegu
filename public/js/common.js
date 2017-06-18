@@ -24,7 +24,10 @@ define(['jquery', 'template', 'cookie'], function ($ ,template) {
             '<img src="{{tc_avatar}}">' +
             '</div>' +
             '<h4>{{tc_name}}</h4>';
-            var html = template.render(tpl,userInfo);
+            var html = template.render(tpl,{
+                tc_name:userInfo.tc_name,
+                tc_avatar:userInfo.tc_avatar || '/public/images/monkey.png'
+            });
             $('#profile').html(html);
 
 });
