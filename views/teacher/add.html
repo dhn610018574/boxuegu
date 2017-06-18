@@ -1,80 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
-   <?php include '/views/common/style.html' ?>
+    <?php include '/views/common/style.html' ?>
 </head>
+
 <body>
-    
+
     <!-- 侧边栏 -->
-   <?php include '/views/common/aside.html' ?>
+    <?php include '/views/common/aside.html' ?>
     <!-- 主体 -->
     <div class="main">
         <div class="container-fluid">
             <!-- 头部 -->
             <?php include '/views/common/header.html' ?>
-            <div class="body teacher">
-                <!-- 面包屑 -->
-                <ol class="breadcrumb">
-                    <li><a href="javascript:;">讲师管理</a></li>
-                    <li class="active">讲师添加</li>
-                </ol>
-                <div class="teacher-add">
-                    <form action="" class="form-horizontal col-md-offset-2" id="form_add">
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">姓名</label>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control input-sm" placeholder="讲师名称" id="tc_name">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">密码</label>
-                            <div class="col-md-4">
-                                <input type="password" class="form-control input-sm" id="tc_pass">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">入职时间</label>
-                            <div class="col-md-4">
-                                <input type="text" class="form-control input-sm" id="tc_join_date">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">类型</label>
-                            <div class="col-md-2">
-                                <select name="" class="form-control input-sm" id="tc_type">
-                                    <option value="1">讲师</option>
-                                    <option value="0">管理员</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">性别</label>
-                            <div class="col-md-4">
-                                <label class="radio-inline">
-                                    <input type="radio" checked name="tc_gender" value="0"> 男
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="tc_gender" value="1"> 女
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-7">
-                                <!--<a href="./advert_list.html" class="btn btn-success btn-sm pull-right"> 添 加 </a>-->
-                                <input type="submit" value="添加" class="btn btn-success btn-sm pull-right">
-                            </div>                          
-                        </div>
-                    </form>
-                </div>
+            <div class="body teacher" id="teacher_add_edit">
+                <!--模板的坑-->
             </div>
         </div>
     </div>
 
     <?php include '/views/common/script.html' ?>
+
+ <script type="text/html" id="teacher_add_edit_tpl">
+    <!-- 面包屑 -->
+    <ol class="breadcrumb">
+      <li><a href="javascript:;">讲师管理</a></li>
+      <li class="active">{{ title }}</li>
+    </ol>
+    <div class="teacher-add">
+      <form action="{{ url }}" class="form-horizontal col-md-offset-2">
+        <!-- hidden也是一个form表单元素，这个标签是隐藏的，用户看不到 -->
+        <!-- 一般，hidden会用来存储一些用户看不到，但是还是需要提交的数据，比如： tc_id -->
+        {{ if !isAdd }}
+        <input type="hidden" name="tc_id" value="{{tc_id}}">
+        {{ /if }}
+        <div class="form-group">
+          <label for="" class="col-md-3 control-label">姓名</label>
+          <div class="col-md-4">
+            <input type="text" class="form-control input-sm" placeholder="讲师名称" name="tc_name" value="{{ tc_name }}">
+          </div>
+        </div>
+        {{ if isAdd }}
+        <div class="form-group">
+          <label for="" class="col-md-3 control-label">密码</label>
+          <div class="col-md-4">
+            <input type="password" class="form-control input-sm" name="tc_pass" value="{{ tc_pass }}">
+          </div>
+        </div>
+        {{ /if }}
+        <div class="form-group">
+          <label for="" class="col-md-3 control-label">入职时间</label>
+          <div class="col-md-4">
+            <input type="text" class="form-control input-sm" name="tc_join_date" value="{{ tc_join_date }}">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="col-md-3 control-label">类型</label>
+          <div class="col-md-2">
+            <!-- 注意：表单元素中只能包含一个name属性！！！ -->
+            <select class="form-control input-sm" name="tc_type">
+                <!--<option value="-1">- -请选择- -</option>-->
+                <option value="0" {{ if tc_type === '0'}} selected {{ /if }}>管理员</option>
+                <option value="1" {{ if tc_type === '1'}} selected {{ /if }}>讲师</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="col-md-3 control-label">性别</label>
+          <div class="col-md-4">
+            <label class="radio-inline">
+                <input type="radio" {{ if tc_gender === '0'}} checked {{ /if }} name="tc_gender" value="0"> 男
+            </label>
+            <label class="radio-inline">
+              <input type="radio" {{ if tc_gender === '1'}} checked {{ /if }} name="tc_gender" value="1"> 女
+          </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-7">
+            <input type="submit" class="btn btn-success btn-sm pull-right" value="{{ btnTxt }}">
+          </div>
+        </div>
+      </form>
+    </div>
+  </script>
+
+
     <script>
         require(['js/teacher/add']);
     </script>
 </body>
+
 </html>

@@ -11,10 +11,14 @@ var pathConfig = {
     jquery: 'assets/jquery/jquery.min',
     cookie: 'assets/jquery-cookie/jquery.cookie',
     template:'assets/artTemplate/template-web',
-    bootstrap:'assets/bootstrap/js/bootstrap'
+    bootstrap:'assets/bootstrap/js/bootstrap',
+    form:'assets/jquery-form/jquery.form'
   },
   shim:{
     bootstrap:{
+      deps:['jquery']
+    },
+    form:{
       deps:['jquery']
     }
   }
