@@ -1,5 +1,6 @@
 define(['jquery', 'template', 'form', 'datepicker', 'language', 'validate'], function ($, template) {
   // var tc_id = location.search.substr(1).split('=')[1];
+  //根据url获取tc_id
   function GetQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
     var r = window.location.search.substr(1).match(reg);
@@ -35,7 +36,7 @@ define(['jquery', 'template', 'form', 'datepicker', 'language', 'validate'], fun
         }
       }
     });
-  }
+  };
 
   // 添加
   function addTeacher() {
@@ -50,29 +51,7 @@ define(['jquery', 'template', 'form', 'datepicker', 'language', 'validate'], fun
     validate();
 
     // 添加
-  }
-
-  // 不管是添加还是编辑，都需要执行以下功能
-  // $('#teacher_add_edit').on('submit', 'form', function () {
-  //   // 根据 name 属性，来序列化表单的
-  //   $(this).ajaxSubmit({
-  //     type: 'post',
-  //     dataType: 'json',
-  //     // 因为添加功能不需要id
-  //     // data: {tc_id: tc_id},
-
-  //     // 如果有id就指定额外的参数
-  //     // 如果没有id，就不传参数
-  //     // data: tc_id ? {tc_id: tc_id} : {},
-
-  //     //将tc_id在页面中渲染就不必在js中做任何操作了！！
-  //     success: function (data) {
-  //       location.href = '/teacher/list';
-  //     }
-  //   });
-
-  //   return false;
-  // });
+  };
   //表单验证插件
   function validate() {
     $('form').validate({
@@ -84,14 +63,6 @@ define(['jquery', 'template', 'form', 'datepicker', 'language', 'validate'], fun
         $(this).ajaxSubmit({
           type: 'post',
           dataType: 'json',
-          // 因为添加功能不需要id
-          // data: {tc_id: tc_id},
-
-          // 如果有id就指定额外的参数
-          // 如果没有id，就不传参数
-          // data: tc_id ? {tc_id: tc_id} : {},
-
-          //将tc_id在页面中渲染就不必在js中做任何操作了！！
           success: function (data) {
             location.href = '/teacher/list';
           }
@@ -113,16 +84,7 @@ define(['jquery', 'template', 'form', 'datepicker', 'language', 'validate'], fun
           required:'妲己友情提示，不能没有密码'
         }
       }
-      
-
-
     });
-
-
-
-  }
-
-
-
+  };
 
 });

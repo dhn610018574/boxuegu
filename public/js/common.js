@@ -1,5 +1,20 @@
 // jquery的插件是不需要引入的
-define(['jquery', 'template', 'cookie'], function ($ ,template) {
+define(['jquery', 'template','nprogress', 'cookie'], function ($ ,template,NProgress) {
+    //进度条效果和页面加载数据效果
+    NProgress.start();
+    setTimeout(function(){
+        NProgress.done();
+    },500);
+    $(document)
+    .ajaxStart(function(){
+        $('.loading-mask').show();
+    })
+    .ajaxStop(function(){
+        setTimeout(function() {
+            $('.loading-mask').hide();
+        }, 300);
+    })
+
     $('.logout').on('click', function () {
         $.ajax({
             url: '/api/logout',
@@ -29,5 +44,4 @@ define(['jquery', 'template', 'cookie'], function ($ ,template) {
                 tc_avatar:userInfo.tc_avatar || '/public/images/monkey.png'
             });
             $('#profile').html(html);
-
 });
