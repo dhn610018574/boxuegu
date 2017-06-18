@@ -14,7 +14,8 @@ var pathConfig = {
     bootstrap:'assets/bootstrap/js/bootstrap',
     form:'assets/jquery-form/jquery.form',
     datepicker:'assets/bootstrap-datepicker/js/bootstrap-datepicker.min',
-    language:'assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min'
+    language:'assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
+    validate:'assets/validate/jquery-validate.min'
   },
   shim:{
     bootstrap:{
@@ -27,6 +28,9 @@ var pathConfig = {
       deps:['datepicker']
     },
     datepicker:{
+      deps:['jquery']
+    },
+    validate:{
       deps:['jquery']
     }
   }
