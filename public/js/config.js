@@ -12,13 +12,21 @@ var pathConfig = {
     cookie: 'assets/jquery-cookie/jquery.cookie',
     template:'assets/artTemplate/template-web',
     bootstrap:'assets/bootstrap/js/bootstrap',
-    form:'assets/jquery-form/jquery.form'
+    form:'assets/jquery-form/jquery.form',
+    datepicker:'assets/bootstrap-datepicker/js/bootstrap-datepicker.min',
+    language:'assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min'
   },
   shim:{
     bootstrap:{
       deps:['jquery']
     },
     form:{
+      deps:['jquery']
+    },
+    language:{
+      deps:['datepicker']
+    },
+    datepicker:{
       deps:['jquery']
     }
   }

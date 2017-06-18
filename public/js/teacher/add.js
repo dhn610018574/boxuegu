@@ -80,8 +80,15 @@
 //     });
 // });
 // 模块化和页面复用方式：
-define(['jquery', 'template', 'form'], function ($, template) {
+define(['jquery', 'template', 'form','datepicker','language'], function ($, template) {
   var tc_id = location.search.substr(1).split('=')[1];
+// function GetQueryString(name)
+// {
+//      var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+//      var r = window.location.search.substr(1).match(reg);
+//      if(r!=null)return  encodeURIComponent(r[2]); return null;
+// }
+// var tc_id = GetQueryString(tc_id);
   if (tc_id) {
     // 编辑
     updateTeacher();
