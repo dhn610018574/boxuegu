@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>学IT - 后台管理系统</title>
-    <link rel="stylesheet"  href="/public/assets/bootstrap-datepicker/css/bootstrap-datepicker.css">
+    <!--<link rel="stylesheet"  href="/public/assets/bootstrap-datepicker/css/bootstrap-datepicker.css">-->
     <link rel="stylesheet"  href="/public/assets/bootstrap-datepicker/css/bootstrap-datepicker3.css">
    <?php include '/views/common/style.html' ?>
 </head>
@@ -118,7 +118,8 @@
 <script id="teacher_settings_tpl" type="text/html">
     <!--模板-->
 <div class="settings">
-    <form action="" class="form-horizontal">
+    <form  class="form-horizontal">
+        <input type="hidden" name="tc_id" value="{{tc_id}}">
         <div class="form-group">
             <label for="" class="col-md-3 control-label">姓名</label>
             <div class="col-md-5">
@@ -129,11 +130,11 @@
             <label for="" class="col-md-3 control-label">头像</label>
             <div class="col-md-2 preview">
                 {{if tc_avatar}}
-                <img src="{{tc_avatar}}">
+                <img src="{{tc_avatar}}" id="upfile_preview">
                 {{else}}
-                <img src="/public/images/default.png">
+                <img src="/public/images/default.png" id="upfile_preview">
                 {{/if}}
-                <input type="file" id="upfile">
+                <input type="file" id="upfile" name="tc_avatar">
                 <div class="cover">
                     <i class="fa fa-upload"></i>                  
                 </div>
@@ -171,21 +172,15 @@
         </div>
         <div class="form-group">
             <label for="" class="col-md-3 control-label">籍贯</label>
-            <div class="col-md-5">
-                <select name="" class="form-control input-sm">
-                    <option value="">河北省</option>
-                    <option value="">山东省</option>
-                    <option value="">北京市</option>
+            <div class="col-md-5" id="pcd">
+                <select id="p" name="tc_province" data-id="{{tc_province}}" class="form-control input-sm">
+                    <option value="-1">--请选择--</option>
                 </select>
-                <select name="" class="form-control input-sm">
-                    <option value="">河北省</option>
-                    <option value="">山东省</option>
-                    <option value="">北京市</option>
+                <select id="c" name="tc_city" data-id="{{tc_city}}" class="form-control input-sm">
+                    <option value="-1">--请选择--</option>
                 </select>
-                <select name="" class="form-control input-sm">
-                    <option value="">河北省</option>
-                    <option value="">山东省</option>
-                    <option value="">北京市</option>
+                <select id="d" name="tc_district" data-id= "{{tc_district}}" class="form-control input-sm">
+                    <option value="-1">--请选择--</option>
                 </select>
             </div>
         </div>
@@ -222,7 +217,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-8">
-                <a href="javascript:;" class="btn btn-success btn-sm pull-right">更 新</a>
+                <input type="submit" value="更 新" class="btn btn-success btn-sm pull-right">
                 <a href="/index/repass" class="btn btn-link btn-sm pull-right">更改密码？</a>
             </div>
         </div>

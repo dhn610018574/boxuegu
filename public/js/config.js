@@ -17,6 +17,8 @@ var pathConfig = {
     language:'assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
     validate:'assets/validate/jquery-validate.min',
     nprogress: 'assets/nprogress/nprogress',
+    uploadify:'assets/uploadify/jquery.uploadify',
+    region:'assets/jquery-region/jquery.region',
 
     tools:'js/tools'
   },
@@ -34,6 +36,12 @@ var pathConfig = {
       deps:['jquery']
     },
     validate:{
+      deps:['jquery']
+    },
+    uploadify:{
+      deps:['jquery']
+    },
+    region:{
       deps:['jquery']
     }
   }
