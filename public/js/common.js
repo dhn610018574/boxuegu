@@ -1,5 +1,20 @@
 // jquery的插件是不需要引入的
 define(['jquery', 'template','nprogress', 'cookie'], function ($ ,template,NProgress) {
+    //左侧菜单高亮
+    var pathname = location.pathname;
+    var $cuLink = $('.navs').find('[href = "'+ pathname+'"]');
+    $cuLink.addClass('active');
+    $('navs').find('a').removeClass('active');
+    //菜单展开
+    $('.navs li ul').parent().on('click',function(){
+        $(this).children('ul').slideToggle(200);
+        $(this).find('.arrow').toggleClass('fa-angle-down');
+    });
+    //菜单默认展开
+    $cuLink.closest('ul').show();
+    $cuLink.closest('ul').prev().children('.arrow').addClass('fa-angle-down');
+
+
     //进度条效果和页面加载数据效果
     NProgress.start();
     setTimeout(function(){
