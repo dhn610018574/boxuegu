@@ -1,4 +1,6 @@
-define(['jquery', 'template', 'bootstrap'], function ($, template) {
+define(['jquery', 'template', 'tools','bootstrap'], function ($, template,tools) {
+    tools.checkMenu('/teacher/list');
+    
     var $teacher_list = $('#teacher_list');
     //1.展示讲师列表
     $.ajax({

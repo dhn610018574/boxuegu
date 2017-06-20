@@ -16,7 +16,9 @@ var pathConfig = {
     datepicker:'assets/bootstrap-datepicker/js/bootstrap-datepicker.min',
     language:'assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min',
     validate:'assets/validate/jquery-validate.min',
-    nprogress: 'assets/nprogress/nprogress'
+    nprogress: 'assets/nprogress/nprogress',
+
+    tools:'js/tools'
   },
   shim:{
     bootstrap:{

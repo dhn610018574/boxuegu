@@ -1,9 +1,10 @@
 define(['jquery','template','form','datepicker','language','validate'],function($,template){
-    //讲师更新
+    //个人资料获取
 $.ajax({
     url:'/api/teacher/profile',
     success:function(data){
-        console.log(data);
+        var html = template('teacher_settings_tpl',data.result);
+        $('#teacher_profile').html(html);
     }
 })
 

@@ -8,214 +8,226 @@
    <?php include '/views/common/style.html' ?>
 </head>
 <body>
-    
-    <!-- 侧边栏 -->
-    <?php include '/views/common/aside.html' ?>
-    <!-- 主体 -->
-    <div class="main">
-        <div class="container-fluid">
-            <!-- 头部 -->
-            <?php include '/views/common/header.html' ?>
-            <!-- 讲师资料 -->
-            <div class="body teacher-profile">
-                <div class="settings">
-                    <!--模板的坑-->
-                    <!--<form action="" class="form-horizontal">
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">姓名</label>
-                            <div class="col-md-5">
-                                <p class="form-control-static">赵玉川</p>
+
+<!-- 侧边栏 -->
+<?php include '/views/common/aside.html' ?>
+<!-- 主体 -->
+<div class="main">
+    <div class="container-fluid">
+        <!-- 头部 -->
+        <?php include '/views/common/header.html' ?>
+        <!-- 讲师资料 -->
+        <div class="body teacher-profile" id="teacher_profile">
+            <!--<div class="settings">-->
+                <!--模板的坑-->
+                <!--<form action="" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="" class="col-md-3 control-label">姓名</label>
+                        <div class="col-md-5">
+                            <p class="form-control-static">赵玉川</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-3 control-label">头像</label>
+                        <div class="col-md-2 preview">
+                            <img src="/public/images/default.png">
+                            <input type="file" id="upfile">
+                            <div class="cover">
+                                <i class="fa fa-upload"></i>                  
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">头像</label>
-                            <div class="col-md-2 preview">
-                                <img src="/public/images/default.png">
-                                <input type="file" id="upfile">
-                                <div class="cover">
-                                    <i class="fa fa-upload"></i>                  
-                                </div>
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-3 control-label">昵称</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control input-sm">
                         </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">昵称</label>
-                            <div class="col-md-5">
-                                <input type="text" class="form-control input-sm">
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-3 control-label">性别</label>
+                        <div class="col-md-3">
+                            <label class="radio-inline">
+                                <input type="radio" checked> 男
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio"> 女
+                            </label>
                         </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">性别</label>
-                            <div class="col-md-3">
-                                <label class="radio-inline">
-                                    <input type="radio" checked> 男
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio"> 女
-                                </label>
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-3 control-label">出生日期</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control input-sm">
                         </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">出生日期</label>
-                            <div class="col-md-5">
-                                <input type="text" class="form-control input-sm">
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-3 control-label">籍贯</label>
+                        <div class="col-md-5">
+                            <select name="" class="form-control input-sm">
+                                <option value="">河北省</option>
+                                <option value="">山东省</option>
+                                <option value="">北京市</option>
+                            </select>
+                            <select name="" class="form-control input-sm">
+                                <option value="">河北省</option>
+                                <option value="">山东省</option>
+                                <option value="">北京市</option>
+                            </select>
+                            <select name="" class="form-control input-sm">
+                                <option value="">河北省</option>
+                                <option value="">山东省</option>
+                                <option value="">北京市</option>
+                            </select>
                         </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">籍贯</label>
-                            <div class="col-md-5">
-                                <select name="" class="form-control input-sm">
-                                    <option value="">河北省</option>
-                                    <option value="">山东省</option>
-                                    <option value="">北京市</option>
-                                </select>
-                                <select name="" class="form-control input-sm">
-                                    <option value="">河北省</option>
-                                    <option value="">山东省</option>
-                                    <option value="">北京市</option>
-                                </select>
-                                <select name="" class="form-control input-sm">
-                                    <option value="">河北省</option>
-                                    <option value="">山东省</option>
-                                    <option value="">北京市</option>
-                                </select>
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-3 control-label">手机号码</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control input-sm">
                         </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">手机号码</label>
-                            <div class="col-md-5">
-                                <input type="text" class="form-control input-sm">
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-3 control-label">电子邮箱</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control input-sm">
                         </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">电子邮箱</label>
-                            <div class="col-md-5">
-                                <input type="text" class="form-control input-sm">
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-3 control-label">入职日期</label>
+                        <div class="col-md-5">
+                            <input type="text" class="form-control input-sm">
                         </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">入职日期</label>
-                            <div class="col-md-5">
-                                <input type="text" class="form-control input-sm">
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-md-3 control-label">个人介绍</label>
+                        <div class="col-md-5 ckeditor">
+                            <textarea name="" rows="15" class="form-control input-sm"></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">个人介绍</label>
-                            <div class="col-md-5 ckeditor">
-                                <textarea name="" rows="15" class="form-control input-sm"></textarea>
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-8">
+                            <a href="javascript:;" class="btn btn-success btn-sm pull-right">更 新</a>
+                            <a href="/index/repass" class="btn btn-link btn-sm pull-right">更改密码？</a>
                         </div>
-                        <div class="form-group">
-                            <div class="col-md-8">
-                                <a href="javascript:;" class="btn btn-success btn-sm pull-right">更 新</a>
-                                <a href="/index/repass" class="btn btn-link btn-sm pull-right">更改密码？</a>
-                            </div>
-                        </div>
-                    </form>-->
+                    </div>
+                </form>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+<script id="teacher_settings_tpl" type="text/html">
+    <!--模板-->
+<div class="settings">
+    <form action="" class="form-horizontal">
+        <div class="form-group">
+            <label for="" class="col-md-3 control-label">姓名</label>
+            <div class="col-md-5">
+                <p class="form-control-static">{{tc_name}}</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-md-3 control-label">头像</label>
+            <div class="col-md-2 preview">
+                {{if tc_avatar}}
+                <img src="{{tc_avatar}}">
+                {{else}}
+                <img src="/public/images/default.png">
+                {{/if}}
+                <input type="file" id="upfile">
+                <div class="cover">
+                    <i class="fa fa-upload"></i>                  
                 </div>
             </div>
         </div>
-    </div>
-    <script id="settings_tpl" type="text/html">
-        <!--模板-->
-        <form action="" class="form-horizontal">
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">姓名</label>
-                            <div class="col-md-5">
-                                <p class="form-control-static">{{tc_name}}</p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">头像</label>
-                            <div class="col-md-2 preview">
-                                <img src="{{tc_avatar}}">
-                                <input type="file" id="upfile">
-                                <div class="cover">
-                                    <i class="fa fa-upload"></i>                  
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">昵称</label>
-                            <div class="col-md-5">
-                                <input type="text" class="form-control input-sm" value="{{tc_roster}}" name="tc_roster">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">性别</label>
-                            <div class="col-md-3">
-                                <label class="radio-inline">
-                                    <input type="radio" {{if tc_gender=== "0"}}checked{{/if}} name="tc_gender" value="0"> 男
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" {{if tc_gender=== "1"}}checked{{/if}} name="tc_gender"  value="1"> 女
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">出生日期</label>
-                            <div class="col-md-5">
-                                <input type="text" class="form-control input-sm"
-                                name="tc_birthday" 
-                                value="{{ tc_birthday }}"
-                                data-provide="datepicker"
-                                data-date-format="yyyy-mm-dd" 
-                                data-date-language="zh-CN" 
-                                data-date-end-date="0d"
-                                >
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">籍贯</label>
-                            <div class="col-md-5">
-                                <select name="" class="form-control input-sm">
-                                    <option value="">河北省</option>
-                                    <option value="">山东省</option>
-                                    <option value="">北京市</option>
-                                </select>
-                                <select name="" class="form-control input-sm">
-                                    <option value="">河北省</option>
-                                    <option value="">山东省</option>
-                                    <option value="">北京市</option>
-                                </select>
-                                <select name="" class="form-control input-sm">
-                                    <option value="">河北省</option>
-                                    <option value="">山东省</option>
-                                    <option value="">北京市</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">手机号码</label>
-                            <div class="col-md-5">
-                                <input type="text" class="form-control input-sm" value="{{tc_cellphone}}" name="tc_cellphone">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">电子邮箱</label>
-                            <div class="col-md-5">
-                                <input type="text" class="form-control input-sm" value="{{tc_email}}" name="tc_email">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">入职日期</label>
-                            <div class="col-md-5">
-                                <input type="text" class="form-control input-sm" value="tc_join_date" name="tc_join_date">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="" class="col-md-3 control-label">个人介绍</label>
-                            <div class="col-md-5 ckeditor">
-                                <textarea name="" rows="15" class="form-control input-sm" value="{{tc_introduce}}"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-8">
-                                <a href="javascript:;" class="btn btn-success btn-sm pull-right">更 新</a>
-                                <a href="/index/repass" class="btn btn-link btn-sm pull-right">更改密码？</a>
-                            </div>
-                        </div>
-                    </form>
-    
+        <div class="form-group">
+            <label for="" class="col-md-3 control-label">昵称</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control input-sm" value="{{tc_roster}}" name="tc_roster">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-md-3 control-label">性别</label>
+            <div class="col-md-3">
+                <label class="radio-inline">
+                    <input type="radio" {{if tc_gender=== "0"}}checked{{/if}} name="tc_gender" value="0"> 男
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" {{if tc_gender=== "1"}}checked{{/if}} name="tc_gender"  value="1"> 女
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-md-3 control-label">出生日期</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control input-sm"
+                name="tc_birthday" 
+                value="{{ tc_birthday }}"
+                data-provide="datepicker"
+                data-date-format="yyyy-mm-dd" 
+                data-date-language="zh-CN" 
+                data-date-end-date="0d"
+                >
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-md-3 control-label">籍贯</label>
+            <div class="col-md-5">
+                <select name="" class="form-control input-sm">
+                    <option value="">河北省</option>
+                    <option value="">山东省</option>
+                    <option value="">北京市</option>
+                </select>
+                <select name="" class="form-control input-sm">
+                    <option value="">河北省</option>
+                    <option value="">山东省</option>
+                    <option value="">北京市</option>
+                </select>
+                <select name="" class="form-control input-sm">
+                    <option value="">河北省</option>
+                    <option value="">山东省</option>
+                    <option value="">北京市</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-md-3 control-label">手机号码</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control input-sm" value="{{tc_cellphone}}" name="tc_cellphone">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-md-3 control-label">电子邮箱</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control input-sm" value="{{tc_email}}" name="tc_email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-md-3 control-label">入职日期</label>
+            <div class="col-md-5">
+                <input type="text" class="form-control input-sm" 
+                value="{{tc_join_date}}" 
+                name="tc_join_date"
+                data-provide="datepicker"
+                data-date-format="yyyy-mm-dd" 
+                data-date-language="zh-CN" 
+                data-date-end-date="0d"
+                >
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="col-md-3 control-label">个人介绍</label>
+            <div class="col-md-5 ckeditor">
+                <textarea name="" rows="15" class="form-control input-sm">{{tc_introduce}}</textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-8">
+                <a href="javascript:;" class="btn btn-success btn-sm pull-right">更 新</a>
+                <a href="/index/repass" class="btn btn-link btn-sm pull-right">更改密码？</a>
+            </div>
+        </div>
+    </form>
+</div>
     </script>
    <?php include '/views/common/script.html' ?>
    <script>
