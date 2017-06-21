@@ -11,6 +11,7 @@ define(['jquery', 'template','nprogress', 'cookie'], function ($ ,template,NProg
         NProgress.done();
     },500);
     $(document)
+    //加载效果
     .ajaxStart(function(){
         $('.loading-mask').show();
     })
@@ -19,7 +20,7 @@ define(['jquery', 'template','nprogress', 'cookie'], function ($ ,template,NProg
             $('.loading-mask').hide();
         }, 300);
     })
-
+    //退出功能
     $('.logout').on('click', function () {
         $.ajax({
             url: '/api/logout',
@@ -35,10 +36,6 @@ define(['jquery', 'template','nprogress', 'cookie'], function ($ ,template,NProg
         location.href = '/login';
     }
     var userInfo = $.cookie();
-    // $('.profile')
-    //     .find('img').attr('src', userInfo.tc_avatar)
-    //     .end()
-    //     .find('h4').html(userInfo.tc_name);
     //使用模板引擎提交个人信息
     var tpl = '<div class="avatar img-circle">' +
             '<img src="{{tc_avatar}}">' +

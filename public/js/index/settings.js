@@ -3,12 +3,13 @@ define(['jquery', 'template', 'datepicker', 'language', 'uploadify', 'region', '
 $.ajax({
     url:'/api/teacher/profile',
     success:function(data){
-        // console.log(data);
+        if(data.code === 200){
         var html = template('teacher_settings_tpl',data.result);
         $('#teacher_profile').html(html);
         uploadAvatar();
         region();
         update();
+        }
     }
 });
 
@@ -75,13 +76,4 @@ function update(){
         return false;
     });
 };
-
-
-
-
-
-
-
-
-
-})
+});

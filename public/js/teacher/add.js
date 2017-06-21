@@ -1,6 +1,6 @@
-define(['jquery', 'template', 'tools','form', 'datepicker', 'language', 'validate'], function ($, template,tools) {
+define(['jquery', 'template', 'tools', 'form', 'datepicker', 'language', 'validate'], function ($, template, tools) {
+  // 高亮效果
   tools.checkMenu('/teacher/list');
-  // var tc_id = location.search.substr(1).split('=')[1];
   //根据url获取tc_id
   var tc_id = tools.getQS('tc_id');
 
@@ -19,7 +19,7 @@ define(['jquery', 'template', 'tools','form', 'datepicker', 'language', 'validat
       type: 'get',
       dataType: 'json',
       success: function (data) {
-        console.log(data);
+        // console.log(data);
         if (data.code === 200) {
           // 2 渲染页面（模板 + 数据 => html结构）
           data.result.title = '讲师编辑';
@@ -65,19 +65,19 @@ define(['jquery', 'template', 'tools','form', 'datepicker', 'language', 'validat
         });
       },
       //失败执行的回调函数
-      eachInvalidField:function(){
+      eachInvalidField: function () {
         this.parent().parent().addClass('has-error').removeClass('has-success');
       },
       //所有表单验证成功执行的回调函数
       eachValidField: function () {
         this.parent().parent().addClass('has-success').removeClass('has-error');
       },
-      description:{
-        tc_name:{
-          required:'亚瑟友情提示，名字必填'
+      description: {
+        tc_name: {
+          required: '亚瑟友情提示，名字必填'
         },
-        tc_pass:{
-          required:'妲己友情提示，不能没有密码'
+        tc_pass: {
+          required: '妲己友情提示，不能没有密码'
         }
       }
     });

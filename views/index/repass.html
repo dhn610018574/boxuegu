@@ -21,13 +21,13 @@
                         <div class="form-group">
                             <label for="" class="col-md-3 control-label">原密码</label>
                             <div class="col-md-4">
-                                <input type="text" class="form-control input-sm">
+                                <input type="text" class="form-control input-sm" name="tc_pass" value="tc_pass">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="" class="col-md-3 control-label">新密码</label>
                             <div class="col-md-4">
-                                <input type="password" class="form-control input-sm">
+                                <input type="password" class="form-control input-sm" name="tc_new_pass" value="tc_new_pass">
                             </div>
                         </div>
                         <div class="form-group">
@@ -48,5 +48,8 @@
     </div>
 
     <?php include '/views/common/script.html' ?>
+    <script>
+        require(['js/index/repass']);
+    </script>
 </body>
 </html>
