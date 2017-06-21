@@ -10,14 +10,13 @@ function checkMenu(pathname){
     $cuLink.closest('ul').prev().children('.arrow').addClass('fa-angle-down');
 };
 
-function GetQueryString(name){
-    function GetQueryString(name) {
+function GetQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
     var r = window.location.search.substr(1).match(reg);
     if (r != null) return encodeURIComponent(r[2]);
     return null;
   }
-}
+
 return {
     checkMenu:checkMenu,
     getQS:GetQueryString

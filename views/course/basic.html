@@ -1,37 +1,42 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>学IT - 后台管理系统</title>
-    <?php include '/views/common/style.html' ?>
-</head>
-<body>
-    
-    <!-- 侧边栏 -->
-    <?php include '/views/common/aside.html' ?>
-    <!-- 主体 -->
-    <div class="main">
-        <div class="container-fluid">
-            <!-- 头部 -->
-            <?php include '/views/common/header.html' ?>
-            <div class="body course-add">
-                <!-- 面包屑 -->
-                <ol class="breadcrumb">
-                    <li><a href="javascript:;">课程管理</a></li>
-                    <li class="active">课程添加</li>
-                </ol>
-                <div class="steps"  id="course_basic">
-                    <!-- 模板 -->
-                </div>
-            </div>
-        </div>
-    </div>
 
-<script type="text/html" id="course_basic_tpl">
+<head>
+  <meta charset="UTF-8">
+  <title>学IT - 后台管理系统</title>
+  <?php include '/views/common/style.html' ?>
+</head>
+
+<body>
+
+  <!-- 侧边栏 -->
+  <?php include '/views/common/aside.html' ?>
+  <!-- 主体 -->
+  <div class="main">
+    <div class="container-fluid">
+      <!-- 头部 -->
+      <?php include '/views/common/header.html' ?>
+      <div class="body course-add">
+        <!-- 面包屑 -->
+        <ol class="breadcrumb">
+          <li><a href="javascript:;">课程管理</a></li>
+          <li class="active">课程添加</li>
+        </ol>
+        <div class="steps" id="course_basic">
+          <!-- 挖坑 -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <?php include '/views/common/script.html' ?>
+  <script type="text/html" id="course_basic_tpl">
     <!-- 摘要 -->
     <div class="brief">
       <div class="thumb">
-        <img src="/public/images/course.png" alt="">
+        {{ if cs_cover }}
+        <img src="{{ cs_cover }}" alt=""> {{ /if }}
       </div>
       <dl class="info">
         <dt>{{ cs_name }}</dt>
@@ -69,6 +74,7 @@
         <h5>基本信息 <small>BASIC INFORMATION</small></h5>
       </div>
       <form action="" class="basic form-horizontal">
+        <input type="hidden" value="{{cs_id}}" name="cs_id">
         <div class="form-group">
           <label for="" class="col-md-2 control-label">标题</label>
           <div class="col-md-8">
@@ -78,15 +84,13 @@
         <div class="form-group">
           <label for="" class="col-md-2 control-label">课程描述</label>
           <div class="col-md-8 ckeditor">
-            <textarea name="cs_brief" rows="15" class="form-control input-sm">
-              {{ cs_brief }}
-            </textarea>
+            <textarea id="cs_brief" name="cs_brief" rows="15" class="form-control input-sm">{{ cs_brief }}</textarea>
           </div>
         </div>
         <div class="form-group">
           <label for="" class="col-md-2 control-label">讲师</label>
           <div class="col-md-8">
-            <select name="" class="form-control input-sm">
+            <select name="cs_tc_id" class="form-control input-sm teacher">
               <option value="-1">--请选择--</option>
               {{ each teacher }}
               <option value="{{ $value.tc_id }}">{{ $value.tc_name }}</option>
@@ -97,13 +101,13 @@
         <div class="form-group">
           <label for="" class="col-md-2 control-label">分类</label>
           <div class="col-md-8">
-            <select name="" class="form-control input-sm">
+            <select class="form-control input-sm category_top">
               <option value="-1">--请选择--</option>
               {{ each category.top }}
               <option value="{{ $value.cg_id }}">{{ $value.cg_name }}</option>
               {{ /each}}
             </select>
-            <select name="" class="form-control input-sm">
+            <select name="cs_cg_id" class="form-control input-sm category_child">
               <option value="-1">--请选择--</option>
               {{ each category.childs }}
               <option value="{{ $value.cg_id }}">{{ $value.cg_name }}</option>
@@ -120,14 +124,15 @@
         </div>
         <div class="form-group">
           <div class="col-md-10">
-            <a href="./course_add_step2.html" class="btn btn-success btn-sm pull-right">保 存</a>
+            <input type="submit" class="btn btn-success btn-sm pull-right" value="保 存">
           </div>
         </div>
       </form>
     </div>
   </script>
-
-    <?php include '/views/common/script.html' ?>
-    require(['js/course/basic']);
+  <script>
+    require(['js/course/basic'])
+  </script>
 </body>
+
 </html>

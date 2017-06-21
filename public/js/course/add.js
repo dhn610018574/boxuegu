@@ -1,9 +1,11 @@
 define(['jquery', 'tools','validate'], function ($, tools) {
     tools.checkMenu('/course/add');
+    //表单验证
     $('#course_form').validate({
         onSubmit: true,
         sendForm: false,
         valid: function () {
+            // 发送请求，获取数据
             $.ajax({
                 url: '/api/course/create',
                 type: 'post',
@@ -34,4 +36,7 @@ define(['jquery', 'tools','validate'], function ($, tools) {
         }
 
     });
+
+
+    
 });

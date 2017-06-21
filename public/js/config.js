@@ -20,6 +20,9 @@ var pathConfig = {
     uploadify:'assets/uploadify/jquery.uploadify',
     region:'assets/jquery-region/jquery.region',
     ckeditor: 'assets/ckeditor/ckeditor',
+    jcrop:'assets/jcrop/js/jcrop',
+
+
 
     tools:'js/tools'
   },
@@ -43,6 +46,9 @@ var pathConfig = {
       deps:['jquery']
     },
     region:{
+      deps:['jquery']
+    },
+    jcrop:{
       deps:['jquery']
     },
     ckeditor:{
