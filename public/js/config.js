@@ -19,6 +19,7 @@ var pathConfig = {
     nprogress: 'assets/nprogress/nprogress',
     uploadify:'assets/uploadify/jquery.uploadify',
     region:'assets/jquery-region/jquery.region',
+    ckeditor: 'assets/ckeditor/ckeditor',
 
     tools:'js/tools'
   },
@@ -43,6 +44,9 @@ var pathConfig = {
     },
     region:{
       deps:['jquery']
+    },
+    ckeditor:{
+      exports: 'CKEDITOR'
     }
   }
 

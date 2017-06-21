@@ -1,4 +1,4 @@
-define(['jquery', 'template', 'datepicker', 'language', 'uploadify', 'region', 'form'],function($,template){
+define(['jquery', 'template', 'ckeditor','datepicker', 'language', 'uploadify', 'region', 'form'],function($,template,CKEDITOR){
     //个人资料获取
 $.ajax({
     url:'/api/teacher/profile',
@@ -9,6 +9,10 @@ $.ajax({
         uploadAvatar();
         region();
         update();
+        //富文本编辑
+         CKEDITOR.replace('tc_introduce', {
+          skin: 'moono-lisa'
+        });
         }
     }
 });
@@ -41,12 +45,13 @@ function uploadAvatar () {
         // data 服务端返回的数据
         // reponse 是一个布尔值
         // 服务端返回的是字符串，要转换成对象格式
-        console.log(file);
-        console.log(data);
-        console.log(response);
          data = JSON.parse(data);
          var imgPath = data.result.path;
+         console.log(imgPath);
          $('#upfile_preview').attr('src',imgPath);
+         //同步头像
+         $('#profile').find('img').attr('src', imgPath);
+         $.cookie('tc_avatar', imgPath, { expires: 1 ,path:'/'});
         }
     });
 
@@ -61,6 +66,7 @@ function region(){
 //更新信息
 function update(){
     $('form').on('submit',function(){
+        CKEDITOR.instances.tc_introduce.updateElement();
         $('form').ajaxSubmit({
             url:'/api/teacher/modify',
             type:'post',
