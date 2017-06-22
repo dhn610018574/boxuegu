@@ -5,10 +5,16 @@
   <meta charset="UTF-8">
   <title>学IT - 后台管理系统</title>
   <?php include '/views/common/style.html' ?>
+  <link rel="stylesheet"  href="/public/assets/jcrop/css/Jcrop.css">
 </head>
  <style>
     #upfile_pic-button {
       line-height: 19px!important;
+    }
+      .jcrop-thumb {
+        /*position: absolute;*/
+        top: 0;
+        left: 0;
     }
   </style>
 
@@ -35,6 +41,7 @@
   </div>
 
   <?php include '/views/common/script.html' ?>
+
   <script type="text/html" id="course_picture_tpl">
     <!-- 摘要 -->
     <div class="brief">
@@ -45,10 +52,10 @@
         <img src="/public/images/course.png" alt="">
         {{ /if }}
       </div>
+       
       <dl class="info">
         <dt>{{ cs_name }}</dt>
         <dd>讲师：{{ tc_name }}</dd>
-        <!--<dd>课时：32</dd>-->
       </dl>
     </div>
     <!-- 步聚 -->
@@ -80,9 +87,9 @@
       </div>
       <!-- 上传图片 -->
       <div class="picture col-md-offset-2">
-        <div class="preview upfile_pic_perview">
+        <div class="preview upfile_pic_perview" id="container">
           {{ if cs_cover_original }}
-          <img src="{{ cs_cover_original }}" alt="">
+          <img src="{{ cs_cover_original }}" alt="" id="target">
           {{ else }}
           <img src="/public/images/course.png" alt="">
           {{ /if }}
@@ -94,8 +101,19 @@
           <input type="file" value="选择图片" class="btn btn-success btn-sm" id="upfile_pic" >
         </div>
         <div class="col-md-2">
+          {{ if cs_cover_original }}
+          <input type="button" value="裁切图片" class="btn btn-warning btn-sm" id="jcrop_btn" data-status = "crop">
+          {{ else }}
           <input type="button" value="裁切图片" class="btn btn-warning btn-sm" id="jcrop_btn" disabled>
+          {{ /if }}
+          
         </div>
+        <form id="myform" style="display:none;">
+          <input type="hidden" name="cropx" id="cropx" value="0" />
+          <input type="hidden" name="cropy" id="cropy" value="0" />
+          <input type="hidden" name="cropw" id="cropw" value="0" />
+          <input type="hidden" name="croph" id="croph" value="0" />
+        </form>
       </div>
     </div>
   </script>
