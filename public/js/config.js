@@ -21,8 +21,7 @@ var pathConfig = {
     region:'assets/jquery-region/jquery.region',
     ckeditor: 'assets/ckeditor/ckeditor',
     jcrop:'assets/jcrop/js/jcrop',
-
-
+    lazyload:'assets/lazyload/jquery.lazyload',
 
     tools:'js/tools'
   },
@@ -53,7 +52,11 @@ var pathConfig = {
     },
     ckeditor:{
       exports: 'CKEDITOR'
+    },
+    lazyload:{
+      deps:['jquery']
     }
+
   }
 
 };

@@ -5,18 +5,6 @@ define(['jquery', 'template', 'tools', 'jcrop', 'uploadify', 'form'], function (
 
   // 渲染页面结构
   render();
-
-  /*
-  render：
-
-    1 进入页面，发送请求获取数据，渲染页面结构
-    2 绑定剪裁图片和保存图片事件 以及 初始化上传图片功能
-    3 根据 cs_cover_original 字段，判断用户有没有上传过图片
-      如果上传过，让 剪裁图片按钮 可用
-                 初始化剪裁图片功能
-      如果没有上传过， 让 剪裁图片按钮 禁用，也不 初始化剪裁图片功能（因为还没有图片）
-  */
-
   // 渲染页面结构
   function render() {
     $.ajax({
@@ -159,7 +147,7 @@ define(['jquery', 'template', 'tools', 'jcrop', 'uploadify', 'form'], function (
           }
         });
       }
-
+      
       return false;
     });
 
