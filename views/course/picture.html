@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,18 +6,17 @@
   <meta charset="UTF-8">
   <title>学IT - 后台管理系统</title>
   <?php include '/views/common/style.html' ?>
-  <link rel="stylesheet"  href="/public/assets/jcrop/css/Jcrop.css">
-</head>
- <style>
+  <link rel="stylesheet" href="/public/assets/jcrop/css/Jcrop.min.css">
+  <style>
     #upfile_pic-button {
       line-height: 19px!important;
     }
-      .jcrop-thumb {
-        /*position: absolute;*/
-        top: 0;
-        left: 0;
-    }
+
+    /*.jcrop-thumb {
+      top: 0;
+    }*/
   </style>
+</head>
 
 <body>
 
@@ -41,33 +41,30 @@
   </div>
 
   <?php include '/views/common/script.html' ?>
-
   <script type="text/html" id="course_picture_tpl">
     <!-- 摘要 -->
     <div class="brief">
       <div class="thumb">
         {{ if cs_cover }}
-        <img src="{{ cs_cover }}" alt="">
-        {{ else }}
-        <img src="/public/images/course.png" alt="">
-        {{ /if }}
+        <img src="{{ cs_cover }}" alt=""> {{ else }}
+        <img src="/public/images/course.png" alt=""> {{ /if }}
       </div>
-       
       <dl class="info">
         <dt>{{ cs_name }}</dt>
         <dd>讲师：{{ tc_name }}</dd>
+        <!--<dd>课时：32</dd>-->
       </dl>
     </div>
     <!-- 步聚 -->
     <ul class="forwards list-unstyled">
       <li>
-        <a href="/course/basic" class="done">
+        <a href="./course_add_step1.html" class="done">
                             <b class="fa fa-check"></b>
                             基本信息
                             </a>
       </li>
       <li>
-        <a href="/course/picture" class="active">
+        <a href="./course_add_step2.html" class="active">
                             <b>2</b>
                             课程图片
                             </a>
@@ -87,32 +84,31 @@
       </div>
       <!-- 上传图片 -->
       <div class="picture col-md-offset-2">
-        <div class="preview upfile_pic_perview" id="container">
+        <div class="preview upfile_pic_perview">
           {{ if cs_cover_original }}
-          <img src="{{ cs_cover_original }}" alt="" id="target">
-          {{ else }}
-          <img src="/public/images/course.png" alt="">
-          {{ /if }}
+          <img src="{{ cs_cover_original }}" alt=""> {{ else }}
+          <img src="/public/images/course.png" alt=""> {{ /if }}
         </div>
         <p class="tips">
           可上传jpg, gif, png格式文件, 图片建议尺寸大于300x150，文件大小不能超过2M。
         </p>
         <div class="col-md-2">
-          <input type="file" value="选择图片" class="btn btn-success btn-sm" id="upfile_pic" >
+          <input type="file" value="选择图片" class="btn btn-success btn-sm" id="upfile_pic">
         </div>
         <div class="col-md-2">
-          {{ if cs_cover_original }}
-          <input type="button" value="裁切图片" class="btn btn-warning btn-sm" id="jcrop_btn" data-status = "crop">
-          {{ else }}
-          <input type="button" value="裁切图片" class="btn btn-warning btn-sm" id="jcrop_btn" disabled>
-          {{ /if }}
-          
+          <!-- form 是HTML5中提供的一个属性， 用于指定当前按钮属于哪一个form表单
+               注意：form属性的值为 表单的id
+           -->
+          <input type="submit" value="裁切图片" class="btn btn-warning btn-sm" id="jcrop_btn" data-option="1" form="upfile_pic_form" disabled>
         </div>
-        <form id="myform" style="display:none;">
-          <input type="hidden" name="cropx" id="cropx" value="0" />
-          <input type="hidden" name="cropy" id="cropy" value="0" />
-          <input type="hidden" name="cropw" id="cropw" value="0" />
-          <input type="hidden" name="croph" id="croph" value="0" />
+        
+        <!-- 获取用户剪裁图片的数据，将剪裁图片的数据发送到服务端剪裁图片接口，又服务端完成图片剪裁的功能 -->
+        <form id="upfile_pic_form">
+          <input type="hidden" name="cs_id" value="{{ cs_id }}" />
+          <input type="hidden" name="x" id="x" value="0" />
+          <input type="hidden" name="y" id="y" value="0" />
+          <input type="hidden" name="w" id="w" value="0" />
+          <input type="hidden" name="h" id="h" value="0" />
         </form>
       </div>
     </div>
